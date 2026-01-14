@@ -157,6 +157,7 @@ glueContext.purge_s3_path(target_partition_path, options={"retentionPeriod": 0})
 (
     df.write
     .mode("append")
+    .partitionBy("ingestion_date")
     .parquet(CURATED_BASE)
 )
 
